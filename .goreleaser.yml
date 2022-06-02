@@ -1,0 +1,21 @@
+builds:
+  - main: ./cmd
+    binary: helm-edit
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+archives:
+  - format: tar.gz
+    files:
+      - README.md
+      - LICENSE
+      - plugin.yaml
+      - scripts/install_plugin.sh
+checksum:
+  name_template: 'checksums.txt'

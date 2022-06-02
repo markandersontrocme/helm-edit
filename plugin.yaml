@@ -1,0 +1,11 @@
+name: "edit"
+version: "0.1.0"
+usage: "Implementation of kubectl edit for helm values"
+description: |-
+  An implementation of kubectl edit for helm values
+ignoreFlags: false
+useTunnel: false
+command: "$HELM_PLUGIN_DIR/bin/helm-edit"
+hooks:
+  install: "cd $HELM_PLUGIN_DIR; scripts/install_plugin.sh"
+  update: "cd $HELM_PLUGIN_DIR; scripts/install_plugin.sh"
