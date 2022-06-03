@@ -20,11 +20,12 @@ import (
 	"os/exec"
 
 	"github.com/MarkAndersonTrocme/helm-edit/pkg/common"
+	"github.com/google/go-cmp/cmp"
 	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
 	"helm.sh/helm/pkg/chartutil"
 	"helm.sh/helm/v3/pkg/action"
 	"helm.sh/helm/v3/pkg/release"
+	"sigs.k8s.io/kustomize/kyaml/yaml"
 )
 
 func EditRelease(editOptions common.EditOptions) error {
@@ -51,7 +52,12 @@ func EditRelease(editOptions common.EditOptions) error {
 	}
 	defer os.Remove(file.Name())
 
-	os.WriteFile(file.Name(), originalValues, 0644)
+	yOriginalValues, err := yaml.Marshal(&originalValues)
+	if err != nil {
+		return errors.Wrap(err, "failed to convert to YAML")
+	}
+
+	os.WriteFile(file.Name(), yOriginalValues, 0644)
 
 	cmd := exec.Command(editor, file.Name())
 	cmd.Stdin = os.Stdin
@@ -67,12 +73,11 @@ func EditRelease(editOptions common.EditOptions) error {
 	}
 
 	updatedValues := newValues.AsMap()
-	newValuesString, err := newValues.YAML()
 	if err != nil {
 		return err
 	}
 
-	if string(originalValues) != newValuesString {
+	if !cmp.Equal(originalValues, updatedValues) {
 		upgrade := action.NewUpgrade(cfg)
 
 		upgrade.DryRun = editOptions.DryRun
@@ -111,12 +116,12 @@ func getLatestRelease(releaseName string, cfg *action.Configuration) (*release.R
 	return cfg.Releases.Last(releaseName)
 }
 
-func getReleaseValues(releaseName string, allValues bool, cfg *action.Configuration) ([]byte, error) {
+func getReleaseValues(releaseName string, allValues bool, cfg *action.Configuration) (map[string]interface{}, error) {
 	getValues := action.NewGetValues(cfg)
 	getValues.AllValues = allValues
 	values, err := getValues.Run(releaseName)
 	if err != nil {
 		return nil, errors.Wrapf(err, "failed to get values '%s' latest version", releaseName)
 	}
-	return yaml.Marshal(&values)
+	return values, nil
 }
