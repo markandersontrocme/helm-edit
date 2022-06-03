@@ -12,6 +12,10 @@
 Based on the version in the `plugin.yaml`, release binary will be downloaded from Github:
 
 ```console
+helm plugin install https://github.com/MarkAndersonTrocme/helm-edit
+```
+
+```console
 Downloading and installing helm-edit v0.1.0 ...
 https://github.com/MarkAndersonTrocme/helm-edit/releases/download/v0.1.0/helm-edit_0.1.0_darwin_amd64.tar.gz
 Installed plugin: edit
