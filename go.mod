@@ -1,4 +1,4 @@
-module github.com/MarkAndersonTrocme/helm-edit
+module github.com/markandersontrocme/helm-edit
 
 go 1.18
 

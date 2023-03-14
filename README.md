@@ -1,9 +1,9 @@
 # Helm edit Plugin
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Go Report Card](https://goreportcard.com/badge/github.com/MarkAndersonTrocme/helm-edit)](https://goreportcard.com/report/github.com/MarkAndersonTrocme/helm-edit)
-[![CircleCI](https://circleci.com/gh/MarkAndersonTrocme/helm-edit/tree/main.svg?style=svg)](https://circleci.com/gh/MarkAndersonTrocme/helm-edit/tree/main)
-[![Release](https://img.shields.io/github/release/MarkAndersonTrocme/helm-edit.svg?style=flat-square)](https://github.com/MarkAndersonTrocme/helm-edit/releases/latest)
+[![Go Report Card](https://goreportcard.com/badge/github.com/markandersontrocme/helm-edit)](https://goreportcard.com/report/github.com/markandersontrocme/helm-edit)
+[![CircleCI](https://circleci.com/gh/markandersontrocme/helm-edit/tree/main.svg?style=svg)](https://circleci.com/gh/markandersontrocme/helm-edit/tree/main)
+[![Release](https://img.shields.io/github/release/markandersontrocme/helm-edit.svg?style=flat-square)](https://github.com/markandersontrocme/helm-edit/releases/latest)
 
 `helm-edit` is an implemenation of `kubectl edit` for Helm values. It allows you to edit the values of a Helm release using a text editor.
 
@@ -12,12 +12,12 @@
 Based on the version in the `plugin.yaml`, release binary will be downloaded from Github:
 
 ```console
-helm plugin install https://github.com/MarkAndersonTrocme/helm-edit
+helm plugin install https://github.com/markandersontrocme/helm-edit
 ```
 
 ```console
 Downloading and installing helm-edit v0.1.0 ...
-https://github.com/MarkAndersonTrocme/helm-edit/releases/download/v0.1.0/helm-edit_0.1.0_darwin_amd64.tar.gz
+https://github.com/markandersontrocme/helm-edit/releases/download/v0.1.0/helm-edit_0.1.0_darwin_amd64.tar.gz
 Installed plugin: edit
 ```
 

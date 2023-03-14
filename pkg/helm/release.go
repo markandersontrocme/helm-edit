@@ -19,8 +19,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/MarkAndersonTrocme/helm-edit/pkg/common"
 	"github.com/google/go-cmp/cmp"
+	"github.com/markandersontrocme/helm-edit/pkg/common"
 	"github.com/pkg/errors"
 	"helm.sh/helm/pkg/chartutil"
 	"helm.sh/helm/v3/pkg/action"
