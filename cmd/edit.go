@@ -16,8 +16,8 @@ package main
 import (
 	"io"
 
-	"github.com/MarkAndersonTrocme/helm-edit/pkg/common"
-	"github.com/MarkAndersonTrocme/helm-edit/pkg/helm"
+	"github.com/markandersontrocme/helm-edit/pkg/common"
+	"github.com/markandersontrocme/helm-edit/pkg/helm"
 	"github.com/spf13/cobra"
 )
 

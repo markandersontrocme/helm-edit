@@ -11,15 +11,15 @@ echo "Downloading and installing helm-edit v${version} ..."
 
 url=""
 if [ "$(uname)" = "Darwin" ]; then
-    url="https://github.com/MarkAndersonTrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_darwin_amd64.tar.gz"
+    url="https://github.com/markandersontrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_darwin_amd64.tar.gz"
 elif [ "$(uname)" = "Linux" ] ; then
     if [ "$(uname -m)" = "aarch64" ] || [ "$(uname -m)" = "arm64" ]; then
-        url="https://github.com/MarkAndersonTrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_linux_arm64.tar.gz"
+        url="https://github.com/markandersontrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_linux_arm64.tar.gz"
     else
-        url="https://github.com/MarkAndersonTrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_linux_amd64.tar.gz"
+        url="https://github.com/markandersontrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_linux_amd64.tar.gz"
     fi
 else
-    url="https://github.com/MarkAndersonTrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_windows_amd64.tar.gz"
+    url="https://github.com/markandersontrocme/helm-edit/releases/download/v${version}/helm-edit_${version}_windows_amd64.tar.gz"
 fi
 
 echo "$url"
